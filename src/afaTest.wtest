@@ -1,0 +1,42 @@
+import afa.*
+
+test "Messi en la Bombonera" {
+	afa.elegirJugadorYEstadio(messi,bombonera)
+
+
+
+	assert.that(afa.gananciaNeta() == 480000000)
+	
+	messi.opinaDelPrecidente()
+	
+	assert.that(afa.gananciaNeta() == 430000000)
+	
+	messi.viaticos(1000000)
+	
+	assert.that(afa.gananciaNeta() == 429000000)
+}
+
+
+test "Mesii en el Monumental" {
+	afa.elegirJugadorYEstadio(messi,monumental)
+	monumental.avanceDeRemodelacion(60)
+	
+	assert.that(afa.gananciaNeta() == 342800000)
+	
+	monumental.alquiler(20000000)
+	
+	assert.that(afa.gananciaNeta() == 322800000)
+}
+
+test "mbappe en la bombonera"{
+	afa.elegirJugadorYEstadio(mbappe,bombonera)
+	mbappe.popularidad(23,29)
+	assert.that(afa.gananciaNeta() == 364880000)
+}
+
+test "haland en el Monumental"{
+	afa.elegirJugadorYEstadio(haland,monumental)
+	haland.ganaFinal()
+	monumental.avanceDeRemodelacion(80)
+	assert.that(afa.gananciaNeta() == 273100000 )
+}
